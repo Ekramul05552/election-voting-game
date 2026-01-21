@@ -1,0 +1,5 @@
+- [ ] Edit styles.css: Remove max-width from input[type="number"] to make it fit better in the div.
+- [ ] Edit index.html: Remove 'w-full' class from label, change voting grid to 'grid-cols-1' for vertical layout, add reset button in results section.
+- [ ] Edit script.js: Add reset function and event listener to make the app fully functional for repeated use.
+- [ ] Clean up styles.css: Remove unused CSS classes (e.g., .grid-cols-1, .md\:grid-cols-3, .results-grid, .fas, .fa-user-tie, .fa-utensils, .fa-fish, .vote-count, .results-card).
+- [ ] Test the app to ensure input fits, voting is vertical, and reset works.

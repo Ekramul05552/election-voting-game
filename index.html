@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marka Ki - নির্বাচন ভোটিং গেম</title>
+    <meta name="description" content="Marka Ki is an interactive election voting app for simulating votes in Bangladesh elections. Experience democratic voting with various political parties.">
+    <meta name="keywords" content="Marka Ki, voting app, election simulator, Bangladesh politics, নির্বাচন, ভোট, নৌকা, ধানের শীষ">
+    <meta name="author" content="Marka Ki Team">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Marka Ki - Election Voting Game">
+    <meta property="og:description" content="Interactive voting simulator for Bangladesh elections.">
+    <meta property="og:image" content="assets/nouka.png">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Marka Ki - Election Voting Game">
+    <meta property="twitter:description" content="Interactive voting simulator for Bangladesh elections.">
+    <meta property="twitter:image" content="assets/nouka.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="card">
+            
+            <div id="setup-screen" class="screen active">
+                <h1>নির্বাচন সেটআপ</h1>
+                <form id="setup-form">
+                    <div class="input-group">
+                        <label>মোট আসন সংখ্যা নির্ধারণ করুন</label>
+                        <input type="number" id="total-seats" placeholder="যেমন: ২০, ২০০, ৪০০" required min="1">
+                    </div>
+                    <button type="submit" class="btn-primary">ভোট শুরু করুন</button>
+                </form>
+            </div>
+
+            <div id="voting-screen" class="screen">
+                <div class="header">
+                    <h2>আপনার ভোট দিন</h2>
+                    <p id="vote-counter">প্রদত্ত ভোট: ০ / ০</p>
+                </div>
+                
+                <div class="vote-options">
+                    <button class="vote-btn" data-candidate="নৌকা">
+                        <img src="assets/nouka.png" alt="নৌকা" class="candidate-img">
+                        <span class="name">নৌকা</span>
+                    </button>
+
+                    <button class="vote-btn" data-candidate="ধানের শীষ">
+                        <img src="assets/dhaner shish.png" alt="ধানের শীষ" class="candidate-img">
+                        <span class="name">ধানের শীষ</span>
+                    </button>
+
+                    <button class="vote-btn" data-candidate="দাড়ি পাল্লা">
+                        <img src="assets/daripalla.png" alt="দাড়ি পাল্লা" class="candidate-img">
+                        <span class="name">দাড়ি পাল্লা</span>
+                    </button>
+
+                    <button class="vote-btn" data-candidate="NCP">
+                        <img src="assets/ncp.png" alt="NCP" class="candidate-img">
+                        <span class="name">NCP</span>
+                    </button>
+
+                    <button class="vote-btn" data-candidate="PGP">
+                        <img src="assets/pgp.png" alt="PGP" class="candidate-img">
+                        <span class="name">PGP (Present Goverment Party)</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="results-screen" class="screen">
+                <h1 class="result-title">চূড়ান্ত ফলাফল</h1>
+                <div class="winner-banner">
+                    <p id="winner-name"></p>
+                    <p id="winner-diff"></p>
+                </div>
+                <div id="tally-list" class="tally-list"></div>
+                <button onclick="location.reload()" class="btn-restart">নতুন নির্বাচন শুরু করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content">
+            <h3>ভোট নিশ্চিত করুন</h3>
+            <p>আপনি কি নিশ্চিত যে আপনি <span id="pending-candidate" style="font-weight: bold; color: #2563eb;"></span> মার্কার ভোট দিতে চান?</p>
+            <div class="modal-actions">
+                <button id="cancel-vote" class="btn-cancel">বাতিল</button>
+                <button id="confirm-vote" class="btn-confirm">নিশ্চিত</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
